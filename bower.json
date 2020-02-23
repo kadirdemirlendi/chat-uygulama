@@ -1,0 +1,17 @@
+{
+  "name": "chat-uygulamas",
+  "description": "",
+  "main": "",
+  "authors": [
+    "kadir demirlendi"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chat",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/kadirdemirlendi/chat-uygulama",
+  "dependencies": {
+    "angular": "^1.7.9"
+  }
+}
