@@ -13,7 +13,7 @@ router.get('/google/callback', passwordGoogle.authenticate(
             failureRedirect: '/'
         }),
     (req, res) => {
-        res.redirect('chat');
+        res.redirect('/chat');
     }
 );
 
