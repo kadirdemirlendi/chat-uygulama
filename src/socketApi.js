@@ -6,12 +6,13 @@ const socketApi = {
     io
 };
 
+//lib
+const Users = require('./lib/Users');
+
 // socket authorization
 io.use(socketAuthorization);
 
-io.on('connection', socket => {
-    console.log('bir kullanıcı '+socket.request.user.name+' ile giriş yaptı');
-    /**
+/**
      * Redis Adapter
      */
     const redisAdapter = require('socket.io-redis');
@@ -19,6 +20,9 @@ io.on('connection', socket => {
         host: process.env.REDIS_URI,
         port: process.env.REDIS_PORT
     }));
+
+io.on('connection', socket => {
+    Users.upsert(socket.id,socket.request.user);
 });
 
 module.exports = socketApi;
