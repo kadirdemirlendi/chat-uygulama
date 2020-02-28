@@ -1,10 +1,23 @@
 app.controller('chatController', ['$scope', ($scope) => {
+    /**
+     * Angular variables
+     * @type {Array}
+     */
     $scope.onlineList = [];
-    $scope.activeTab = 1;
+    $scope.roomList = [];
+    $scope.activeTab = 2;
 
+    /**
+     * socket.io event handling
+     */
     const socket = io.connect('http://localhost:3000');
     socket.on('onlineList', users => {
         $scope.onlineList = users;
+        $scope.$apply();
+    });
+
+    socket.on('roomList', rooms => {
+        $scope.roomList = rooms;
         $scope.$apply();
     });
 

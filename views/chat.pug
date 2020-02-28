@@ -18,9 +18,8 @@ block content
           .tabArea
             .tabLeft(ng-show="activeTab === 1")
               ul.people
-                li.person
-                  span.name Kadir Demirlendi
-                  span.preview I was wondering...
+                li.person(ng-repeat="room in roomList")
+                  span.name {{ room.roomName }}
                 
             .tabRight(ng-show="activeTab === 2")
                 ul.people
