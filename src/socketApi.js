@@ -23,6 +23,11 @@ io.use(socketAuthorization);
     }));
 
 io.on('connection', socket => {
+
+    Rooms.list(rooms => {
+        console.log(rooms);
+    });
+
     Users.upsert(socket.id,socket.request.user);
 
     Users.list(users => {
