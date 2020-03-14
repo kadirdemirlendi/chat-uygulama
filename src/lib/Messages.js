@@ -24,3 +24,20 @@ Messages.prototype.upsert = function ({ roomId, message,username,usersurname}){
         }
     )
 };
+
+Messages.prototype.list = function(roomId ,callback){
+    let messageList = [];
+
+    this.client.hgetall('messages:'+roomId, function(err,messages){
+        if(err){
+            console.error(err);
+            return callback([]); //kullanıcı yok anlamına geliyor.
+        }
+
+        for(let message in messages){
+            messageList.push(JSON.parse(messages[message]));
+        }
+
+        return callback(messageList);
+    });
+}
