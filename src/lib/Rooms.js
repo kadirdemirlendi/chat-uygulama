@@ -7,14 +7,14 @@ function Rooms() {
 
 module.exports = new Rooms();
 
-Rooms.prototype.upsert = function (name){
+Rooms.prototype.upsert = function (roomName){
     const newId = shortid.generate();
     this.client.hset(
         'rooms',
         '@Room:'+newId,
         JSON.stringify({
             id : '@Room:'+newId,
-            name,
+            roomName,
             when: Date.now()
         }),
         err => {
