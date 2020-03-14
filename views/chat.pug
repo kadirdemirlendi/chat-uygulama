@@ -19,7 +19,7 @@ block content
             .tabLeft(ng-show="activeTab === 1")
               ul.people
                 li.person(ng-repeat="room in roomList", ng-click="switchRoom(room)")
-                  span.name {{ room.roomName }}
+                  span.name {{ room.name }}
                 
             .tabRight(ng-show="activeTab === 2")
                 ul.people
